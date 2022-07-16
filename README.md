@@ -1,5 +1,7 @@
 # examples-rhf-zod
 
+[![Support Node of LTS](https://img.shields.io/badge/node-LTS-brightgreen.svg)](https://nodejs.org/)
+
 Example for a validation with [React Hook Form](https://github.com/react-hook-form/react-hook-form) and [Zod](https://github.com/colinhacks/zod).
 
 ## Getting Started
@@ -14,8 +16,17 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MUI](https://mui.com/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Design
+
+Based on [Container/Presentational Pattern](https://www.patterns.dev/posts/presentational-container-pattern/).
+
+# License
+
+- [MIT](LICENSE.txt)
