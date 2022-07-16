@@ -1,12 +1,32 @@
 {
   "name": "examples-rhf-zod",
+  "description": "Example for a validation with React Hook Form and Zod.",
   "version": "0.1.0",
+  "author": "akabeko (http://akabeko.me/)",
+  "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">= 14"
+  },
+  "keywords": [
+    "React Hook Form",
+    "Zod"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akabekobeko/examples-rhf-zod.git"
+  },
+  "homepage": "https://github.com/akabekobeko/examples-rhf-zod#readme",
+  "bugs": {
+    "url": "https://github.com/akabekobeko/examples-rhf-zod/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ncu": "ncu -u",
+    "fixpack": "fixpack"
   },
   "dependencies": {
     "next": "12.2.2",
@@ -19,6 +39,8 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",
+    "fixpack": "^4.0.0",
+    "npm-check-updates": "^15.3.3",
     "typescript": "4.7.4"
   }
 }
