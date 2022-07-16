@@ -29,4 +29,4 @@ Based on [Container/Presentational Pattern](https://www.patterns.dev/posts/prese
 
 # License
 
-- [MIT](LICENSE.txt)
+- [MIT](LICENSE)
