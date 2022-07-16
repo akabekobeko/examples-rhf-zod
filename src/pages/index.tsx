@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
 import { Box } from '@mui/material'
-import { SampleFormContainer } from '@components'
+import { UserRegistration } from '@components'
 
 /**
  * Component fot het home page.
  */
 const Home: NextPage = () => (
   <Box sx={{ width: '100wh', height: '100vh' }}>
-    <SampleFormContainer />
+    <UserRegistration />
   </Box>
 )
 

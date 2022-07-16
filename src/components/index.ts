@@ -1,1 +1,1 @@
-export { Container as SampleFormContainer } from './SampleForm/Container'
+export { Container as UserRegistration } from './UserRegistration/Container'
