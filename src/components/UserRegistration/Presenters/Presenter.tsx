@@ -8,11 +8,24 @@ import {
 } from '@mui/material'
 import { SettingItem } from './SettingItem'
 import { SettingItemGroup } from './SettingItemGroup'
+import { useForm, SubmitHandler } from 'react-hook-form'
+
+type RegistrationSettings = {
+  email: string
+  password: string
+  displayName: string
+  profile: string
+}
 
 /**
  * Component for user registration form.
  */
 export const Presenter: FC = () => {
+  const { register, handleSubmit } = useForm<RegistrationSettings>()
+  const onSubmit: SubmitHandler<RegistrationSettings> = (data) => {
+    console.log(data)
+  }
+
   return (
     <Box
       sx={{
@@ -33,15 +46,25 @@ export const Presenter: FC = () => {
       </Typography>
       <SettingItemGroup>
         <SettingItem label="E-mail *">
-          <TextField required placeholder="name@example.com" type="email" />
+          <TextField
+            required
+            placeholder="name@example.com"
+            type="email"
+            {...register('email')}
+          />
         </SettingItem>
         <SettingItem label="Password *">
-          <TextField required placeholder="Password" type="password" />
+          <TextField
+            required
+            placeholder="Password"
+            type="password"
+            {...register('password')}
+          />
         </SettingItem>
       </SettingItemGroup>
       <SettingItemGroup>
         <SettingItem label="Display Name">
-          <TextField placeholder="Name" />
+          <TextField placeholder="Name" {...register('displayName')} />
         </SettingItem>
         <SettingItem label="Profile">
           <TextareaAutosize
@@ -50,10 +73,13 @@ export const Presenter: FC = () => {
             style={{
               padding: '.5rem',
             }}
+            {...register('profile')}
           />
         </SettingItem>
       </SettingItemGroup>
-      <Button variant="contained">Submit</Button>
+      <Button variant="contained" onClick={handleSubmit(onSubmit)}>
+        Submit
+      </Button>
     </Box>
   )
 }
