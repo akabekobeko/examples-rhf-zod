@@ -16,6 +16,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "@models": ["src/models"],
       "@components": ["src/components"]
     }
   },
