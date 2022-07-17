@@ -10,7 +10,7 @@ import { SettingItem } from './SettingItem'
 import { SettingItemGroup } from './SettingItemGroup'
 
 /**
- * Components that care about how data is shown to the user.
+ * Component for user registration form.
  */
 export const Presenter: FC = () => {
   return (
