@@ -10,10 +10,25 @@ import { SettingItem } from './SettingItem'
 import { SettingItemGroup } from './SettingItemGroup'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
+/**
+ * User registration settings.
+ */
 type RegistrationSettings = {
+  /**
+   * E-mail.
+   */
   email: string
+  /**
+   * Password.
+   */
   password: string
+  /**
+   * Display name in this service.
+   */
   displayName: string
+  /**
+   * User profile.
+   */
   profile: string
 }
 
