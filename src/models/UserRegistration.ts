@@ -38,8 +38,24 @@ export const userRegistrationScheme = z.object({
 export type UserRegistration = z.infer<typeof userRegistrationScheme>
 
 /**
+ * Result of `RegisterUser` API.
+ */
+export type RegisterUserResult = {
+  /**
+   * E-mail.
+   */
+  email: string
+  /**
+   * Message.
+   */
+  message: string
+}
+
+/**
  * Register a user account.
  * @param data - Account data.
  * @returns Results of account registration process.
  */
-export type RegisterUser = (data: UserRegistration) => Promise<string>
+export type RegisterUser = (
+  data: UserRegistration
+) => Promise<RegisterUserResult>

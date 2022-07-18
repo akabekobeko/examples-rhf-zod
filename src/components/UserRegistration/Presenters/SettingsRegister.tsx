@@ -3,12 +3,14 @@ import { useFormContext, SubmitHandler } from 'react-hook-form'
 import { FadeLoader } from 'react-spinners'
 import {
   Button,
+  Box,
+  Typography,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
 } from '@mui/material'
-import { UserRegistration, RegisterUser } from '@models'
+import { UserRegistration, RegisterUser, RegisterUserResult } from '@models'
 
 /**
  * Properties of components for registering settings.
@@ -26,7 +28,11 @@ export type Props = {
 export const SettingsRegister: FC<Props> = ({ registerUser }) => {
   const [isOpened, setOpen] = useState<boolean>(false)
   const [isRegistering, setRegistering] = useState<boolean>(false)
-  const [message, setMessage] = useState<string>('')
+  const [registerUserResult, setRegisterUserResult] =
+    useState<RegisterUserResult>({
+      email: '',
+      message: '',
+    })
   const { handleSubmit } = useFormContext<UserRegistration>()
 
   const onSubmit: SubmitHandler<UserRegistration> = async (data) => {
@@ -35,7 +41,7 @@ export const SettingsRegister: FC<Props> = ({ registerUser }) => {
     console.log(data)
     const result = await registerUser(data)
     setRegistering(false)
-    setMessage(result)
+    setRegisterUserResult(result)
   }
 
   const handleClickOk = () => {
@@ -59,7 +65,18 @@ export const SettingsRegister: FC<Props> = ({ registerUser }) => {
             width: '20rem',
           }}
         >
-          {isRegistering ? <FadeLoader /> : message}
+          {isRegistering ? (
+            <FadeLoader />
+          ) : (
+            <Box
+              sx={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}
+            >
+              <Typography variant="h3" sx={{ textAlign: 'center' }}>
+                {registerUserResult.email}
+              </Typography>
+              <Typography>{registerUserResult.message}</Typography>
+            </Box>
+          )}
         </DialogContent>
         <DialogActions>
           <Button

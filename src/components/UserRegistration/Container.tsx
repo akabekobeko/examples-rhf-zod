@@ -16,7 +16,10 @@ const sleep = (second: number) =>
 export const Container: FC = () => {
   const registerUser: RegisterUser = async (data) => {
     await sleep(3000)
-    return `${data.email}\nSuccess user account successfully registered!`
+    return {
+      email: data.email,
+      message: 'Success user account successfully registered!',
+    }
   }
 
   return <Presenter registerUser={registerUser} />
