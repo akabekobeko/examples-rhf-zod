@@ -5,12 +5,22 @@ import { Box, Typography } from '@mui/material'
 import { UserRegistration, userRegistrationScheme } from '@models'
 import { SettingsAccount } from './SettingsAccount'
 import { SettingsUserProfile } from './SettingsUserProfile'
-import { SettingsRegister } from './SettingsRegister'
+import {
+  SettingsRegister,
+  Props as SettingsRegisterProps,
+} from './SettingsRegister'
+
+/**
+ * Properties of component for user registration form.
+ */
+type Props = SettingsRegisterProps & {
+  // Define if additions are needed.
+}
 
 /**
  * Component for user registration form.
  */
-export const Presenter: FC = () => {
+export const Presenter: FC<Props> = ({ registerUser }) => {
   const methods = useForm<UserRegistration>({
     resolver: zodResolver(userRegistrationScheme),
     mode: 'onChange',
@@ -37,7 +47,7 @@ export const Presenter: FC = () => {
       <FormProvider {...methods}>
         <SettingsAccount />
         <SettingsUserProfile />
-        <SettingsRegister />
+        <SettingsRegister registerUser={registerUser} />
       </FormProvider>
     </Box>
   )
