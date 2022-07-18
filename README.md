@@ -6,6 +6,14 @@ Example for a validation with [React Hook Form](https://github.com/react-hook-fo
 
 ## Getting Started
 
+Run the following after the `git clone`.
+
+```bash
+npm i
+# or
+yarn
+```
+
 First, run the development server:
 
 ```bash
@@ -16,17 +24,20 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Screenshot
+
+| Form                    | Submitting                    | Submitted                    |
+| ----------------------- | ----------------------------- | ---------------------------- |
+| ![Form](docs/ss-01.png) | ![Submitting](docs/ss-02.png) | ![Submitted](docs/ss-03.png) |
+
 ## Tech Stack
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [MUI](https://mui.com/)
+- [Container/Presentational Pattern](https://www.patterns.dev/posts/presentational-container-pattern/)
 
-## Design
-
-Based on [Container/Presentational Pattern](https://www.patterns.dev/posts/presentational-container-pattern/).
-
-# License
+## License
 
 - [MIT](LICENSE)
