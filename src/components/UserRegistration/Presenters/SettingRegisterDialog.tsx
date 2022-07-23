@@ -10,7 +10,7 @@ import {
   DialogContent,
   DialogActions,
 } from '@mui/material'
-import { UserRegistration, RegisterUser, RegisterUserResult } from '@models'
+import { UserRegistration } from '@models'
 
 /**
  * Properties of components for indicator dialog of the registering settings.

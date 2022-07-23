@@ -22,10 +22,7 @@ export const userRegistrationScheme = z.object({
   /**
    * Display name in this service.
    */
-  displayName: z
-    .string()
-    .min(4, 'Please enter at least 4 characters.')
-    .optional(),
+  displayName: z.string().optional(),
   /**
    * User profile.
    */
