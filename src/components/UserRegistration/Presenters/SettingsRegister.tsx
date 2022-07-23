@@ -26,7 +26,7 @@ export type Props = {
  * Components for registering settings.
  */
 export const SettingsRegister: FC<Props> = ({ registerUser }) => {
-  const [isOpened, setOpen] = useState<boolean>(false)
+  const [isDialogOpened, setDialogOpen] = useState<boolean>(false)
   const [registerUserResult, setRegisterUserResult] =
     useState<RegisterUserResult>({
       email: '',
@@ -38,14 +38,14 @@ export const SettingsRegister: FC<Props> = ({ registerUser }) => {
   } = useFormContext<UserRegistration>()
 
   const onSubmit: SubmitHandler<UserRegistration> = async (data) => {
-    setOpen(true)
+    setDialogOpen(true)
     console.log(data)
     const result = await registerUser(data)
     setRegisterUserResult(result)
   }
 
   const handleClickOk = () => {
-    setOpen(false)
+    setDialogOpen(false)
   }
 
   return (
@@ -53,7 +53,7 @@ export const SettingsRegister: FC<Props> = ({ registerUser }) => {
       <Button variant="contained" onClick={handleSubmit(onSubmit)}>
         Submit
       </Button>
-      <Dialog open={isOpened}>
+      <Dialog open={isDialogOpened}>
         <DialogTitle>
           {isSubmitting ? 'Register...' : 'Completed!!'}
         </DialogTitle>
