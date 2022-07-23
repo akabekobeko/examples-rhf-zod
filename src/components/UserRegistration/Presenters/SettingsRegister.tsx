@@ -27,20 +27,17 @@ export type Props = {
  */
 export const SettingsRegister: FC<Props> = ({ registerUser }) => {
   const [isOpened, setOpen] = useState<boolean>(false)
-  const [isRegistering, setRegistering] = useState<boolean>(false)
   const [registerUserResult, setRegisterUserResult] =
     useState<RegisterUserResult>({
       email: '',
       message: '',
     })
-  const { handleSubmit } = useFormContext<UserRegistration>()
+  const { handleSubmit, formState } = useFormContext<UserRegistration>()
 
   const onSubmit: SubmitHandler<UserRegistration> = async (data) => {
     setOpen(true)
-    setRegistering(true)
     console.log(data)
     const result = await registerUser(data)
-    setRegistering(false)
     setRegisterUserResult(result)
   }
 
@@ -55,7 +52,7 @@ export const SettingsRegister: FC<Props> = ({ registerUser }) => {
       </Button>
       <Dialog open={isOpened}>
         <DialogTitle>
-          {isRegistering ? 'Register...' : 'Completed!!'}
+          {formState.isSubmitting ? 'Register...' : 'Completed!!'}
         </DialogTitle>
         <DialogContent
           sx={{
@@ -65,7 +62,7 @@ export const SettingsRegister: FC<Props> = ({ registerUser }) => {
             width: '20rem',
           }}
         >
-          {isRegistering ? (
+          {formState.isSubmitting ? (
             <FadeLoader />
           ) : (
             <Box
@@ -81,7 +78,7 @@ export const SettingsRegister: FC<Props> = ({ registerUser }) => {
         <DialogActions>
           <Button
             variant="contained"
-            disabled={isRegistering}
+            disabled={formState.isSubmitting}
             onClick={handleClickOk}
           >
             OK
